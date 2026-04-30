@@ -1,7 +1,37 @@
 ﻿@page "/"
+@using RazorEditor.Shared
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+@* I expected CTRL+K,D to align the undescores. *@
+@if (_bool1 ||
+_bool2 ||
+_bool3)
+{
+    <h1>Hello, world!</h1>
+}
 
-Welcome to your new app.
+
+@* CTRL+K,D moves "bar" and "baz" further and further to the right. Just repeat CTRL+K,D... *@
+<MyComponent Show="@_bool1"
+             String="@("foo " +
+                                "bar " +
+                                "baz")" />
+
+
+@* CTRL+K,D misaligns "oninput" and does not align "</textarea>". *@
+<textarea id="foobar"
+          disabled="@(!_bool3)"
+          @bind="MyString"
+          oninput="if(this.value.includes('\n')) foobar.blur()">
+                            </textarea>
+
+
+@* CTRL+K,D indents this comment and the "div", misaligns "oninput", does not align "</textarea>" and does not align the closing "</div>" with the opening "<div>". *@
+<div>
+    <textarea id="foobarbaz"
+              disabled="@(!_bool3)"
+              @bind="MyString"
+              oninput="if(this.value.includes('\n')) foobarbaz.blur()">
+                            </textarea>
+</div>

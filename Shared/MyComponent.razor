@@ -1,0 +1,9 @@
+﻿@if (Show)
+{
+    <p>@String</p>
+}
+
+@code {
+    [Parameter] public bool Show { get; set; } = true;
+    [Parameter] public string String { get; set; } = "";
+}
