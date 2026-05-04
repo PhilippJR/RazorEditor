@@ -8,5 +8,17 @@
         readonly bool _bool3 = true;
 
         public string MyString { get; set; } = "";
+
+
+        // I expected CTRL+K,D to align the undescores.
+        private void MyMethod()
+        {
+            if (_bool1 ||
+_bool2 ||
+_bool3)
+            {
+
+}
+        }
     }
 }
