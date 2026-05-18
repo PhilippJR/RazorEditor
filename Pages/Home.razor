@@ -3,7 +3,8 @@
 
 <PageTitle>Home</PageTitle>
 
-@* I expected CTRL+K,D to align the undescores. *@
+@* VS 18.5: I expected CTRL+K,D to align the undescores. *@
+@* VS 18.6: I expected CTRL+K,D to align the undescores. *@
 @if (_bool1 ||
 _bool2 ||
 _bool3)
@@ -12,14 +13,16 @@ _bool3)
 }
 
 
-@* CTRL+K,D moves "bar" and "baz" further and further to the right. Just repeat CTRL+K,D... *@
+@* VS 18.5: CTRL+K,D moves "bar" and "baz" further and further to the right. Just repeat CTRL+K,D... *@
+@* VS 18.6: CTRL+K,D moves "bar" and "baz" further and further to the right. Just repeat CTRL+K,D... *@
 <MyComponent Show="@_bool1"
              String="@("foo " +
                                 "bar " +
                                 "baz")" />
 
 
-@* CTRL+K,D misaligns "oninput" and does not align "</textarea>". *@
+@* VS 18.5: CTRL+K,D misaligns "oninput" and does not align "</textarea>". *@
+@* VS 18.6: CTRL+K,D does not align "</textarea>". *@
 <textarea id="foobar"
           disabled="@(!_bool3)"
           @bind="MyString"
@@ -27,7 +30,8 @@ _bool3)
                             </textarea>
 
 
-@* CTRL+K,D indents this comment and the "div", misaligns "oninput", does not align "</textarea>" and does not align the closing "</div>" with the opening "<div>". *@
+@* VS 18.5: CTRL+K,D indents this comment and the "div", misaligns "oninput", does not align "</textarea>" and does not align the closing "</div>" with the opening "<div>". *@
+@* VS 18.6: CTRL+K,D does not align "</textarea>". *@
 <div>
     <textarea id="foobarbaz"
               disabled="@(!_bool3)"

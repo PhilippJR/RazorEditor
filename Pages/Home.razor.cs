@@ -10,7 +10,8 @@
         public string MyString { get; set; } = "";
 
 
-        // I expected CTRL+K,D to align the undescores.
+        // VS 18.5: I expected CTRL+K,D to align the undescores.
+        // VS 18.6: I expected CTRL+K,D to align the undescores.
         private void MyMethod()
         {
             if (_bool1 ||
